@@ -13,9 +13,9 @@ namespace Blue.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbcc6ecb5cc89b4edda5faa6c9008a7850Entities : DbContext
+    public partial class BlueEntities : DbContext
     {
-        public dbcc6ecb5cc89b4edda5faa6c9008a7850Entities()
+        public BlueEntities()
             : base("name=dbcc6ecb5cc89b4edda5faa6c9008a7850Entities")
         {
         }

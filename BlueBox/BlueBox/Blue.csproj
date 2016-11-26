@@ -181,6 +181,12 @@
     <Folder Include="Areas\Areas\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blue.DataBase\Blue.DataBase.csproj">
+      <Project>{3046ee2f-3c2c-437f-877f-cb425c5dfb22}</Project>
+      <Name>Blue.DataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

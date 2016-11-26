@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Blue.DataBase;
 namespace BlueBox.Controllers
 {
     public class HomeController : Controller
@@ -32,7 +32,8 @@ namespace BlueBox.Controllers
             #endregion 
 
             //判断管理员是否存在
-
+            BlueEntities db = new BlueEntities();
+            
             return Json(new { status = 1, msg = "登录成功" }, JsonRequestBehavior.AllowGet);
         }
     }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueBox", "BlueBox\BlueBox.csproj", "{7DCA547E-470C-4560-A352-563C3A3768AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blue", "BlueBox\Blue.csproj", "{7DCA547E-470C-4560-A352-563C3A3768AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blue.Service", "Blue.Service", "{8453D75B-AE49-462C-993D-825AE1FCC0B7}"
 EndProject
