@@ -1,0 +1,2032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="article">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="channel_id" Type="int" Nullable="false" />
+          <Property Name="category_id" Type="int" Nullable="false" />
+          <Property Name="call_index" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="link_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_title" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_keywords" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_description" Type="nvarchar" MaxLength="255" />
+          <Property Name="tags" Type="nvarchar" MaxLength="500" />
+          <Property Name="zhaiyao" Type="nvarchar" MaxLength="255" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="click" Type="int" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="is_msg" Type="tinyint" />
+          <Property Name="is_top" Type="tinyint" />
+          <Property Name="is_red" Type="tinyint" />
+          <Property Name="is_hot" Type="tinyint" />
+          <Property Name="is_slide" Type="tinyint" />
+          <Property Name="is_sys" Type="tinyint" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="add_time" Type="datetime" />
+          <Property Name="update_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="article_albums">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="article_id" Type="int" />
+          <Property Name="thumb_path" Type="nvarchar" MaxLength="255" />
+          <Property Name="original_path" Type="nvarchar" MaxLength="255" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="article_attach">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="article_id" Type="int" />
+          <Property Name="file_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="file_path" Type="nvarchar" MaxLength="255" />
+          <Property Name="file_size" Type="int" />
+          <Property Name="file_ext" Type="nvarchar" MaxLength="20" />
+          <Property Name="down_num" Type="int" />
+          <Property Name="point" Type="int" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="article_attribute_field">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="control_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="data_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="data_length" Type="int" />
+          <Property Name="data_place" Type="tinyint" />
+          <Property Name="item_option" Type="ntext" />
+          <Property Name="default_value" Type="ntext" />
+          <Property Name="is_required" Type="tinyint" />
+          <Property Name="is_password" Type="tinyint" />
+          <Property Name="is_html" Type="tinyint" />
+          <Property Name="editor_type" Type="tinyint" />
+          <Property Name="valid_tip_msg" Type="nvarchar" MaxLength="255" />
+          <Property Name="valid_error_msg" Type="nvarchar" MaxLength="255" />
+          <Property Name="valid_pattern" Type="nvarchar" MaxLength="500" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="article_attribute_value">
+          <Key>
+            <PropertyRef Name="article_id" />
+          </Key>
+          <Property Name="article_id" Type="int" Nullable="false" />
+          <Property Name="sub_title" Type="nvarchar" MaxLength="255" />
+          <Property Name="source" Type="nvarchar" MaxLength="100" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="goods_no" Type="nvarchar" MaxLength="100" />
+          <Property Name="stock_quantity" Type="int" />
+          <Property Name="market_price" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="sell_price" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="int" />
+          <Property Name="video_src" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="article_category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="channel_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="call_index" Type="nvarchar" MaxLength="50" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="class_list" Type="nvarchar" MaxLength="500" />
+          <Property Name="class_layer" Type="int" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="link_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="seo_title" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_keywords" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="article_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="channel_id" Type="int" />
+          <Property Name="article_id" Type="int" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="user_ip" Type="nvarchar" MaxLength="255" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="is_lock" Type="tinyint" />
+          <Property Name="add_time" Type="datetime" />
+          <Property Name="is_reply" Type="tinyint" />
+          <Property Name="reply_content" Type="ntext" />
+          <Property Name="reply_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="channel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="site_id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="is_albums" Type="tinyint" />
+          <Property Name="is_attach" Type="tinyint" />
+          <Property Name="is_spec" Type="tinyint" />
+          <Property Name="sort_id" Type="int" />
+        </EntityType>
+        <EntityType Name="channel_field">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="channel_id" Type="int" />
+          <Property Name="field_id" Type="int" />
+        </EntityType>
+        <EntityType Name="channel_site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="build_path" Type="nvarchar" MaxLength="100" />
+          <Property Name="templet_path" Type="nvarchar" MaxLength="100" />
+          <Property Name="domain" Type="nvarchar" MaxLength="255" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+          <Property Name="logo" Type="nvarchar" MaxLength="255" />
+          <Property Name="company" Type="nvarchar" MaxLength="255" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="tel" Type="nvarchar" MaxLength="30" />
+          <Property Name="fax" Type="nvarchar" MaxLength="30" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="crod" Type="nvarchar" MaxLength="100" />
+          <Property Name="copyright" Type="text" />
+          <Property Name="seo_title" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_keyword" Type="nvarchar" MaxLength="255" />
+          <Property Name="seo_description" Type="nvarchar" MaxLength="500" />
+          <Property Name="is_default" Type="tinyint" />
+          <Property Name="sort_id" Type="int" />
+        </EntityType>
+        <EntityType Name="express">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="express_code" Type="nvarchar" MaxLength="100" />
+          <Property Name="express_fee" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="website" Type="nvarchar" MaxLength="255" />
+          <Property Name="remark" Type="ntext" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_lock" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="site_path" Type="nvarchar" MaxLength="100" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_tel" Type="nvarchar" MaxLength="30" />
+          <Property Name="user_qq" Type="nvarchar" MaxLength="30" />
+          <Property Name="user_email" Type="nvarchar" MaxLength="100" />
+          <Property Name="add_time" Type="datetime" Nullable="false" />
+          <Property Name="reply_content" Type="ntext" />
+          <Property Name="reply_time" Type="datetime" />
+          <Property Name="is_lock" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="link">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="site_path" Type="nvarchar" MaxLength="100" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="site_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="is_image" Type="int" Nullable="false" />
+          <Property Name="sort_id" Type="int" Nullable="false" />
+          <Property Name="is_red" Type="tinyint" Nullable="false" />
+          <Property Name="is_lock" Type="tinyint" Nullable="false" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mail_template">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="call_index" Type="nvarchar" MaxLength="50" />
+          <Property Name="maill_title" Type="nvarchar" MaxLength="100" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="role_type" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" />
+          <Property Name="salt" Type="nvarchar" MaxLength="20" />
+          <Property Name="real_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="30" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" />
+          <Property Name="is_lock" Type="int" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="manager_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="action_type" Type="nvarchar" MaxLength="100" />
+          <Property Name="remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="user_ip" Type="nvarchar" MaxLength="30" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="manager_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="role_type" Type="tinyint" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="manager_role_value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="nav_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="action_type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="navigation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="channel_id" Type="int" />
+          <Property Name="nav_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="sub_title" Type="nvarchar" MaxLength="100" />
+          <Property Name="icon_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="link_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_lock" Type="tinyint" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="action_type" Type="nvarchar" MaxLength="500" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="order_goods">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="article_id" Type="int" />
+          <Property Name="order_id" Type="int" />
+          <Property Name="goods_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="goods_title" Type="nvarchar" MaxLength="100" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="spec_text" Type="text" />
+          <Property Name="goods_price" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="real_price" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="point" Type="int" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_no" Type="nvarchar" MaxLength="100" />
+          <Property Name="trade_no" Type="nvarchar" MaxLength="100" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="payment_id" Type="int" />
+          <Property Name="payment_fee" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="payment_status" Type="tinyint" />
+          <Property Name="payment_time" Type="datetime" />
+          <Property Name="express_id" Type="int" />
+          <Property Name="express_no" Type="nvarchar" MaxLength="100" />
+          <Property Name="express_fee" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="express_status" Type="tinyint" />
+          <Property Name="express_time" Type="datetime" />
+          <Property Name="accept_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="post_code" Type="nvarchar" MaxLength="20" />
+          <Property Name="telphone" Type="nvarchar" MaxLength="30" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" />
+          <Property Name="area" Type="nvarchar" MaxLength="100" />
+          <Property Name="address" Type="nvarchar" MaxLength="500" />
+          <Property Name="message" Type="nvarchar" MaxLength="500" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="is_invoice" Type="tinyint" />
+          <Property Name="invoice_title" Type="varchar" MaxLength="100" />
+          <Property Name="invoice_taxes" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="payable_amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="real_amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="order_amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="int" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="add_time" Type="datetime" />
+          <Property Name="confirm_time" Type="datetime" />
+          <Property Name="complete_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="poundage_type" Type="tinyint" />
+          <Property Name="poundage_amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_lock" Type="tinyint" />
+          <Property Name="api_path" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sms_template">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="call_index" Type="nvarchar" MaxLength="50" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="user_amount_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="payment_id" Type="int" />
+          <Property Name="value" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“dbcc6ecb5cc89b4edda5faa6c9008a7850.dbo.user_attach_log”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="user_attach_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="attach_id" Type="int" />
+          <Property Name="file_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user_code">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="type" Type="nvarchar" MaxLength="20" />
+          <Property Name="str_code" Type="nvarchar" MaxLength="255" />
+          <Property Name="count" Type="int" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="user_ip" Type="nvarchar" MaxLength="20" />
+          <Property Name="eff_time" Type="datetime" Nullable="false" />
+          <Property Name="add_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_group_price">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="article_id" Type="int" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="price" Type="decimal" Precision="9" Scale="2" />
+        </EntityType>
+        <EntityType Name="user_groups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="grade" Type="int" />
+          <Property Name="upgrade_exp" Type="int" />
+          <Property Name="amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="int" />
+          <Property Name="discount" Type="int" />
+          <Property Name="is_default" Type="tinyint" />
+          <Property Name="is_upgrade" Type="tinyint" />
+          <Property Name="is_lock" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="user_login_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="login_time" Type="datetime" />
+          <Property Name="login_ip" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user_message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="post_user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="accept_user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="is_read" Type="tinyint" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="post_time" Type="datetime" Nullable="false" />
+          <Property Name="read_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user_oauth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="oauth_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="oauth_access_token" Type="nvarchar" MaxLength="500" />
+          <Property Name="oauth_openid" Type="nvarchar" MaxLength="255" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user_oauth_app">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="img_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="app_id" Type="nvarchar" MaxLength="100" />
+          <Property Name="app_key" Type="nvarchar" MaxLength="500" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_lock" Type="tinyint" />
+          <Property Name="api_path" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="user_point_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="value" Type="int" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="add_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user_recharge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="recharge_no" Type="nvarchar" MaxLength="100" />
+          <Property Name="payment_id" Type="int" />
+          <Property Name="amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="add_time" Type="datetime" />
+          <Property Name="complete_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="salt" Type="nvarchar" MaxLength="20" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="avatar" Type="nvarchar" MaxLength="255" />
+          <Property Name="nick_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="birthday" Type="datetime" />
+          <Property Name="telphone" Type="nvarchar" MaxLength="50" />
+          <Property Name="area" Type="nvarchar" MaxLength="255" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="qq" Type="nvarchar" MaxLength="20" />
+          <Property Name="msn" Type="nvarchar" MaxLength="100" />
+          <Property Name="amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="int" />
+          <Property Name="exp" Type="int" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="reg_time" Type="datetime" />
+          <Property Name="reg_ip" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_ARTIC_REFERENCE_ARTIC">
+          <End Role="article" Type="Self.article" Multiplicity="1" />
+          <End Role="article_attribute_value" Type="Self.article_attribute_value" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="article_attribute_value">
+              <PropertyRef Name="article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHANN_REFERENCE_ARTIC">
+          <End Role="article_attribute_field" Type="Self.article_attribute_field" Multiplicity="0..1" />
+          <End Role="channel_field" Type="Self.channel_field" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="article_attribute_field">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="channel_field">
+              <PropertyRef Name="field_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHANN_REFERENCE_CHANN">
+          <End Role="channel_site" Type="Self.channel_site" Multiplicity="0..1" />
+          <End Role="channel" Type="Self.channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="channel_site">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="channel">
+              <PropertyRef Name="site_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHANN_REFERENCE_CHANN_FIELD">
+          <End Role="channel" Type="Self.channel" Multiplicity="0..1" />
+          <End Role="channel_field" Type="Self.channel_field" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="channel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="channel_field">
+              <PropertyRef Name="channel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANAG_REFERENCE_MANAG">
+          <End Role="manager_role" Type="Self.manager_role" Multiplicity="0..1" />
+          <End Role="manager" Type="Self.manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manager_role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="manager">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANAG_REFERENCE_MANAG_ROLE_VALUE">
+          <End Role="manager_role" Type="Self.manager_role" Multiplicity="0..1" />
+          <End Role="manager_role_value" Type="Self.manager_role_value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manager_role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="manager_role_value">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_REFERENCE_ORDER">
+          <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+          <End Role="order_goods" Type="Self.order_goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order_goods">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbcc6ecb5cc89b4edda5faa6c9008a7850ModelStoreContainer">
+          <EntitySet Name="article" EntityType="Self.article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="article_albums" EntityType="Self.article_albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="article_attach" EntityType="Self.article_attach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="article_attribute_field" EntityType="Self.article_attribute_field" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="article_attribute_value" EntityType="Self.article_attribute_value" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="article_category" EntityType="Self.article_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="article_comment" EntityType="Self.article_comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="channel" EntityType="Self.channel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="channel_field" EntityType="Self.channel_field" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="channel_site" EntityType="Self.channel_site" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="express" EntityType="Self.express" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="link" EntityType="Self.link" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mail_template" EntityType="Self.mail_template" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager" EntityType="Self.manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager_log" EntityType="Self.manager_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager_role" EntityType="Self.manager_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager_role_value" EntityType="Self.manager_role_value" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="navigation" EntityType="Self.navigation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_goods" EntityType="Self.order_goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sms_template" EntityType="Self.sms_template" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_amount_log" EntityType="Self.user_amount_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_code" EntityType="Self.user_code" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_group_price" EntityType="Self.user_group_price" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_groups" EntityType="Self.user_groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_login_log" EntityType="Self.user_login_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_message" EntityType="Self.user_message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_oauth" EntityType="Self.user_oauth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_oauth_app" EntityType="Self.user_oauth_app" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_point_log" EntityType="Self.user_point_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_recharge" EntityType="Self.user_recharge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_attach_log" EntityType="Self.user_attach_log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[user_attach_log].[id] AS [id], 
+[user_attach_log].[user_id] AS [user_id], 
+[user_attach_log].[user_name] AS [user_name], 
+[user_attach_log].[attach_id] AS [attach_id], 
+[user_attach_log].[file_name] AS [file_name], 
+[user_attach_log].[add_time] AS [add_time]
+FROM [dbo].[user_attach_log] AS [user_attach_log]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ARTIC_REFERENCE_ARTIC" Association="Self.FK_ARTIC_REFERENCE_ARTIC">
+            <End Role="article" EntitySet="article" />
+            <End Role="article_attribute_value" EntitySet="article_attribute_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHANN_REFERENCE_ARTIC" Association="Self.FK_CHANN_REFERENCE_ARTIC">
+            <End Role="article_attribute_field" EntitySet="article_attribute_field" />
+            <End Role="channel_field" EntitySet="channel_field" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHANN_REFERENCE_CHANN" Association="Self.FK_CHANN_REFERENCE_CHANN">
+            <End Role="channel_site" EntitySet="channel_site" />
+            <End Role="channel" EntitySet="channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHANN_REFERENCE_CHANN_FIELD" Association="Self.FK_CHANN_REFERENCE_CHANN_FIELD">
+            <End Role="channel" EntitySet="channel" />
+            <End Role="channel_field" EntitySet="channel_field" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANAG_REFERENCE_MANAG" Association="Self.FK_MANAG_REFERENCE_MANAG">
+            <End Role="manager_role" EntitySet="manager_role" />
+            <End Role="manager" EntitySet="manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANAG_REFERENCE_MANAG_ROLE_VALUE" Association="Self.FK_MANAG_REFERENCE_MANAG_ROLE_VALUE">
+            <End Role="manager_role" EntitySet="manager_role" />
+            <End Role="manager_role_value" EntitySet="manager_role_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_REFERENCE_ORDER" Association="Self.FK_ORDER_REFERENCE_ORDER">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="order_goods" EntitySet="order_goods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbcc6ecb5cc89b4edda5faa6c9008a7850Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="article">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="channel_id" Type="Int32" Nullable="false" />
+          <Property Name="category_id" Type="Int32" Nullable="false" />
+          <Property Name="call_index" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="link_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="img_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_keywords" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tags" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="zhaiyao" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="click" Type="Int32" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="is_msg" Type="Byte" />
+          <Property Name="is_top" Type="Byte" />
+          <Property Name="is_red" Type="Byte" />
+          <Property Name="is_hot" Type="Byte" />
+          <Property Name="is_slide" Type="Byte" />
+          <Property Name="is_sys" Type="Byte" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+          <Property Name="update_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="article_attribute_value" Relationship="Self.FK_ARTIC_REFERENCE_ARTIC" FromRole="article" ToRole="article_attribute_value" />
+        </EntityType>
+        <EntityType Name="article_albums">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="article_id" Type="Int32" />
+          <Property Name="thumb_path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="original_path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="article_attach">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="article_id" Type="Int32" />
+          <Property Name="file_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="file_path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="file_size" Type="Int32" />
+          <Property Name="file_ext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="down_num" Type="Int32" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="article_attribute_field">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="control_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="data_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="data_length" Type="Int32" />
+          <Property Name="data_place" Type="Byte" />
+          <Property Name="item_option" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="default_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_required" Type="Byte" />
+          <Property Name="is_password" Type="Byte" />
+          <Property Name="is_html" Type="Byte" />
+          <Property Name="editor_type" Type="Byte" />
+          <Property Name="valid_tip_msg" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="valid_error_msg" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="valid_pattern" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="is_sys" Type="Byte" />
+          <NavigationProperty Name="channel_field" Relationship="Self.FK_CHANN_REFERENCE_ARTIC" FromRole="article_attribute_field" ToRole="channel_field" />
+        </EntityType>
+        <EntityType Name="article_attribute_value">
+          <Key>
+            <PropertyRef Name="article_id" />
+          </Key>
+          <Property Name="article_id" Type="Int32" Nullable="false" />
+          <Property Name="sub_title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="goods_no" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="stock_quantity" Type="Int32" />
+          <Property Name="market_price" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="sell_price" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="video_src" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="article" Relationship="Self.FK_ARTIC_REFERENCE_ARTIC" FromRole="article_attribute_value" ToRole="article" />
+        </EntityType>
+        <EntityType Name="article_category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="channel_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="call_index" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="class_list" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="class_layer" Type="Int32" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="link_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="img_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="seo_title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_keywords" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="article_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="channel_id" Type="Int32" />
+          <Property Name="article_id" Type="Int32" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_ip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_lock" Type="Byte" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+          <Property Name="is_reply" Type="Byte" />
+          <Property Name="reply_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="reply_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="channel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="site_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="is_albums" Type="Byte" />
+          <Property Name="is_attach" Type="Byte" />
+          <Property Name="is_spec" Type="Byte" />
+          <Property Name="sort_id" Type="Int32" />
+          <NavigationProperty Name="channel_site" Relationship="Self.FK_CHANN_REFERENCE_CHANN" FromRole="channel" ToRole="channel_site" />
+          <NavigationProperty Name="channel_field" Relationship="Self.FK_CHANN_REFERENCE_CHANN_FIELD" FromRole="channel" ToRole="channel_field" />
+        </EntityType>
+        <EntityType Name="channel_field">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="channel_id" Type="Int32" />
+          <Property Name="field_id" Type="Int32" />
+          <NavigationProperty Name="article_attribute_field" Relationship="Self.FK_CHANN_REFERENCE_ARTIC" FromRole="channel_field" ToRole="article_attribute_field" />
+          <NavigationProperty Name="channel" Relationship="Self.FK_CHANN_REFERENCE_CHANN_FIELD" FromRole="channel_field" ToRole="channel" />
+        </EntityType>
+        <EntityType Name="channel_site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="build_path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="templet_path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="domain" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="logo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="company" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="crod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="copyright" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="seo_title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_keyword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="seo_description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="is_default" Type="Byte" />
+          <Property Name="sort_id" Type="Int32" />
+          <NavigationProperty Name="channel" Relationship="Self.FK_CHANN_REFERENCE_CHANN" FromRole="channel_site" ToRole="channel" />
+        </EntityType>
+        <EntityType Name="express">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="express_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="express_fee" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="website" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="is_lock" Type="Byte" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="site_path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_tel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="user_qq" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="reply_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="reply_time" Type="DateTime" Precision="3" />
+          <Property Name="is_lock" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="link">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="site_path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="site_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="img_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="is_image" Type="Int32" Nullable="false" />
+          <Property Name="sort_id" Type="Int32" Nullable="false" />
+          <Property Name="is_red" Type="Byte" Nullable="false" />
+          <Property Name="is_lock" Type="Byte" Nullable="false" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="mail_template">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="call_index" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maill_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_sys" Type="Byte" />
+        </EntityType>
+        <EntityType Name="manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="role_type" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="salt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="real_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="is_lock" Type="Int32" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="manager_role" Relationship="Self.FK_MANAG_REFERENCE_MANAG" FromRole="manager" ToRole="manager_role" />
+        </EntityType>
+        <EntityType Name="manager_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="action_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="user_ip" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="manager_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="role_type" Type="Byte" />
+          <Property Name="is_sys" Type="Byte" />
+          <NavigationProperty Name="manager" Relationship="Self.FK_MANAG_REFERENCE_MANAG" FromRole="manager_role" ToRole="manager" />
+          <NavigationProperty Name="manager_role_value" Relationship="Self.FK_MANAG_REFERENCE_MANAG_ROLE_VALUE" FromRole="manager_role" ToRole="manager_role_value" />
+        </EntityType>
+        <EntityType Name="manager_role_value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="nav_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="action_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="manager_role" Relationship="Self.FK_MANAG_REFERENCE_MANAG_ROLE_VALUE" FromRole="manager_role_value" ToRole="manager_role" />
+        </EntityType>
+        <EntityType Name="navigation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="channel_id" Type="Int32" />
+          <Property Name="nav_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sub_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="icon_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="link_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="is_lock" Type="Byte" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="action_type" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="is_sys" Type="Byte" />
+        </EntityType>
+        <EntityType Name="order_goods">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="article_id" Type="Int32" />
+          <Property Name="order_id" Type="Int32" />
+          <Property Name="goods_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="goods_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="spec_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="goods_price" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="real_price" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="point" Type="Int32" />
+          <NavigationProperty Name="orders" Relationship="Self.FK_ORDER_REFERENCE_ORDER" FromRole="order_goods" ToRole="orders" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_no" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="trade_no" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="payment_id" Type="Int32" />
+          <Property Name="payment_fee" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="payment_status" Type="Byte" />
+          <Property Name="payment_time" Type="DateTime" Precision="3" />
+          <Property Name="express_id" Type="Int32" />
+          <Property Name="express_no" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="express_fee" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="express_status" Type="Byte" />
+          <Property Name="express_time" Type="DateTime" Precision="3" />
+          <Property Name="accept_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="post_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="telphone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="area" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="is_invoice" Type="Byte" />
+          <Property Name="invoice_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="invoice_taxes" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="payable_amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="real_amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="order_amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+          <Property Name="confirm_time" Type="DateTime" Precision="3" />
+          <Property Name="complete_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="order_goods" Relationship="Self.FK_ORDER_REFERENCE_ORDER" FromRole="orders" ToRole="order_goods" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="Byte" />
+          <Property Name="poundage_type" Type="Byte" />
+          <Property Name="poundage_amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="is_lock" Type="Byte" />
+          <Property Name="api_path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sms_template">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="call_index" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_sys" Type="Byte" />
+        </EntityType>
+        <EntityType Name="user_amount_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="payment_id" Type="Int32" />
+          <Property Name="value" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_code">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="str_code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="count" Type="Int32" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="user_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="eff_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="add_time" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_group_price">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="article_id" Type="Int32" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="9" Scale="2" />
+        </EntityType>
+        <EntityType Name="user_groups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="grade" Type="Int32" />
+          <Property Name="upgrade_exp" Type="Int32" />
+          <Property Name="amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="discount" Type="Int32" />
+          <Property Name="is_default" Type="Byte" />
+          <Property Name="is_upgrade" Type="Byte" />
+          <Property Name="is_lock" Type="Byte" />
+        </EntityType>
+        <EntityType Name="user_login_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="login_time" Type="DateTime" Precision="3" />
+          <Property Name="login_ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user_message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="Byte" />
+          <Property Name="post_user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="accept_user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="is_read" Type="Byte" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="post_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="read_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_oauth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="oauth_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="oauth_access_token" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="oauth_openid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_oauth_app">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="app_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="app_key" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="is_lock" Type="Byte" />
+          <Property Name="api_path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user_point_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_recharge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="recharge_no" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="payment_id" Type="Int32" />
+          <Property Name="amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+          <Property Name="complete_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nick_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="birthday" Type="DateTime" Precision="3" />
+          <Property Name="telphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="qq" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="msn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="exp" Type="Int32" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="reg_time" Type="DateTime" Precision="3" />
+          <Property Name="reg_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user_attach_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="attach_id" Type="Int32" />
+          <Property Name="file_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_ARTIC_REFERENCE_ARTIC">
+          <End Role="article" Type="Self.article" Multiplicity="1" />
+          <End Role="article_attribute_value" Type="Self.article_attribute_value" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="article">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="article_attribute_value">
+              <PropertyRef Name="article_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHANN_REFERENCE_ARTIC">
+          <End Role="article_attribute_field" Type="Self.article_attribute_field" Multiplicity="0..1" />
+          <End Role="channel_field" Type="Self.channel_field" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="article_attribute_field">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="channel_field">
+              <PropertyRef Name="field_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHANN_REFERENCE_CHANN">
+          <End Role="channel_site" Type="Self.channel_site" Multiplicity="0..1" />
+          <End Role="channel" Type="Self.channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="channel_site">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="channel">
+              <PropertyRef Name="site_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHANN_REFERENCE_CHANN_FIELD">
+          <End Role="channel" Type="Self.channel" Multiplicity="0..1" />
+          <End Role="channel_field" Type="Self.channel_field" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="channel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="channel_field">
+              <PropertyRef Name="channel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANAG_REFERENCE_MANAG">
+          <End Role="manager_role" Type="Self.manager_role" Multiplicity="0..1" />
+          <End Role="manager" Type="Self.manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manager_role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="manager">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANAG_REFERENCE_MANAG_ROLE_VALUE">
+          <End Role="manager_role" Type="Self.manager_role" Multiplicity="0..1" />
+          <End Role="manager_role_value" Type="Self.manager_role_value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="manager_role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="manager_role_value">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_REFERENCE_ORDER">
+          <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+          <End Role="order_goods" Type="Self.order_goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order_goods">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbcc6ecb5cc89b4edda5faa6c9008a7850Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="article" EntityType="Self.article" />
+          <EntitySet Name="article_albums" EntityType="Self.article_albums" />
+          <EntitySet Name="article_attach" EntityType="Self.article_attach" />
+          <EntitySet Name="article_attribute_field" EntityType="Self.article_attribute_field" />
+          <EntitySet Name="article_attribute_value" EntityType="Self.article_attribute_value" />
+          <EntitySet Name="article_category" EntityType="Self.article_category" />
+          <EntitySet Name="article_comment" EntityType="Self.article_comment" />
+          <EntitySet Name="channel" EntityType="Self.channel" />
+          <EntitySet Name="channel_field" EntityType="Self.channel_field" />
+          <EntitySet Name="channel_site" EntityType="Self.channel_site" />
+          <EntitySet Name="express" EntityType="Self.express" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" />
+          <EntitySet Name="link" EntityType="Self.link" />
+          <EntitySet Name="mail_template" EntityType="Self.mail_template" />
+          <EntitySet Name="manager" EntityType="Self.manager" />
+          <EntitySet Name="manager_log" EntityType="Self.manager_log" />
+          <EntitySet Name="manager_role" EntityType="Self.manager_role" />
+          <EntitySet Name="manager_role_value" EntityType="Self.manager_role_value" />
+          <EntitySet Name="navigation" EntityType="Self.navigation" />
+          <EntitySet Name="order_goods" EntityType="Self.order_goods" />
+          <EntitySet Name="orders" EntityType="Self.orders" />
+          <EntitySet Name="payment" EntityType="Self.payment" />
+          <EntitySet Name="sms_template" EntityType="Self.sms_template" />
+          <EntitySet Name="user_amount_log" EntityType="Self.user_amount_log" />
+          <EntitySet Name="user_code" EntityType="Self.user_code" />
+          <EntitySet Name="user_group_price" EntityType="Self.user_group_price" />
+          <EntitySet Name="user_groups" EntityType="Self.user_groups" />
+          <EntitySet Name="user_login_log" EntityType="Self.user_login_log" />
+          <EntitySet Name="user_message" EntityType="Self.user_message" />
+          <EntitySet Name="user_oauth" EntityType="Self.user_oauth" />
+          <EntitySet Name="user_oauth_app" EntityType="Self.user_oauth_app" />
+          <EntitySet Name="user_point_log" EntityType="Self.user_point_log" />
+          <EntitySet Name="user_recharge" EntityType="Self.user_recharge" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="user_attach_log" EntityType="Self.user_attach_log" />
+          <AssociationSet Name="FK_ARTIC_REFERENCE_ARTIC" Association="Self.FK_ARTIC_REFERENCE_ARTIC">
+            <End Role="article" EntitySet="article" />
+            <End Role="article_attribute_value" EntitySet="article_attribute_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHANN_REFERENCE_ARTIC" Association="Self.FK_CHANN_REFERENCE_ARTIC">
+            <End Role="article_attribute_field" EntitySet="article_attribute_field" />
+            <End Role="channel_field" EntitySet="channel_field" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHANN_REFERENCE_CHANN" Association="Self.FK_CHANN_REFERENCE_CHANN">
+            <End Role="channel_site" EntitySet="channel_site" />
+            <End Role="channel" EntitySet="channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHANN_REFERENCE_CHANN_FIELD" Association="Self.FK_CHANN_REFERENCE_CHANN_FIELD">
+            <End Role="channel" EntitySet="channel" />
+            <End Role="channel_field" EntitySet="channel_field" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANAG_REFERENCE_MANAG" Association="Self.FK_MANAG_REFERENCE_MANAG">
+            <End Role="manager_role" EntitySet="manager_role" />
+            <End Role="manager" EntitySet="manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANAG_REFERENCE_MANAG_ROLE_VALUE" Association="Self.FK_MANAG_REFERENCE_MANAG_ROLE_VALUE">
+            <End Role="manager_role" EntitySet="manager_role" />
+            <End Role="manager_role_value" EntitySet="manager_role_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_REFERENCE_ORDER" Association="Self.FK_ORDER_REFERENCE_ORDER">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="order_goods" EntitySet="order_goods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbcc6ecb5cc89b4edda5faa6c9008a7850ModelStoreContainer" CdmEntityContainer="dbcc6ecb5cc89b4edda5faa6c9008a7850Entities">
+          <EntitySetMapping Name="article">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article">
+              <MappingFragment StoreEntitySet="article">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="call_index" ColumnName="call_index" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="link_url" ColumnName="link_url" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="seo_title" ColumnName="seo_title" />
+                <ScalarProperty Name="seo_keywords" ColumnName="seo_keywords" />
+                <ScalarProperty Name="seo_description" ColumnName="seo_description" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="zhaiyao" ColumnName="zhaiyao" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="click" ColumnName="click" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="is_msg" ColumnName="is_msg" />
+                <ScalarProperty Name="is_top" ColumnName="is_top" />
+                <ScalarProperty Name="is_red" ColumnName="is_red" />
+                <ScalarProperty Name="is_hot" ColumnName="is_hot" />
+                <ScalarProperty Name="is_slide" ColumnName="is_slide" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_albums">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_albums">
+              <MappingFragment StoreEntitySet="article_albums">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="article_id" ColumnName="article_id" />
+                <ScalarProperty Name="thumb_path" ColumnName="thumb_path" />
+                <ScalarProperty Name="original_path" ColumnName="original_path" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_attach">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_attach">
+              <MappingFragment StoreEntitySet="article_attach">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="article_id" ColumnName="article_id" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="file_size" ColumnName="file_size" />
+                <ScalarProperty Name="file_ext" ColumnName="file_ext" />
+                <ScalarProperty Name="down_num" ColumnName="down_num" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_attribute_field">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_attribute_field">
+              <MappingFragment StoreEntitySet="article_attribute_field">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="control_type" ColumnName="control_type" />
+                <ScalarProperty Name="data_type" ColumnName="data_type" />
+                <ScalarProperty Name="data_length" ColumnName="data_length" />
+                <ScalarProperty Name="data_place" ColumnName="data_place" />
+                <ScalarProperty Name="item_option" ColumnName="item_option" />
+                <ScalarProperty Name="default_value" ColumnName="default_value" />
+                <ScalarProperty Name="is_required" ColumnName="is_required" />
+                <ScalarProperty Name="is_password" ColumnName="is_password" />
+                <ScalarProperty Name="is_html" ColumnName="is_html" />
+                <ScalarProperty Name="editor_type" ColumnName="editor_type" />
+                <ScalarProperty Name="valid_tip_msg" ColumnName="valid_tip_msg" />
+                <ScalarProperty Name="valid_error_msg" ColumnName="valid_error_msg" />
+                <ScalarProperty Name="valid_pattern" ColumnName="valid_pattern" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_attribute_value">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_attribute_value">
+              <MappingFragment StoreEntitySet="article_attribute_value">
+                <ScalarProperty Name="article_id" ColumnName="article_id" />
+                <ScalarProperty Name="sub_title" ColumnName="sub_title" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="goods_no" ColumnName="goods_no" />
+                <ScalarProperty Name="stock_quantity" ColumnName="stock_quantity" />
+                <ScalarProperty Name="market_price" ColumnName="market_price" />
+                <ScalarProperty Name="sell_price" ColumnName="sell_price" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="video_src" ColumnName="video_src" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_category">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_category">
+              <MappingFragment StoreEntitySet="article_category">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="call_index" ColumnName="call_index" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="class_list" ColumnName="class_list" />
+                <ScalarProperty Name="class_layer" ColumnName="class_layer" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="link_url" ColumnName="link_url" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="seo_title" ColumnName="seo_title" />
+                <ScalarProperty Name="seo_keywords" ColumnName="seo_keywords" />
+                <ScalarProperty Name="seo_description" ColumnName="seo_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_comment">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_comment">
+              <MappingFragment StoreEntitySet="article_comment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="article_id" ColumnName="article_id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_ip" ColumnName="user_ip" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="is_reply" ColumnName="is_reply" />
+                <ScalarProperty Name="reply_content" ColumnName="reply_content" />
+                <ScalarProperty Name="reply_time" ColumnName="reply_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="channel">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.channel">
+              <MappingFragment StoreEntitySet="channel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="site_id" ColumnName="site_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="is_albums" ColumnName="is_albums" />
+                <ScalarProperty Name="is_attach" ColumnName="is_attach" />
+                <ScalarProperty Name="is_spec" ColumnName="is_spec" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="channel_field">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.channel_field">
+              <MappingFragment StoreEntitySet="channel_field">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="field_id" ColumnName="field_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="channel_site">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.channel_site">
+              <MappingFragment StoreEntitySet="channel_site">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="build_path" ColumnName="build_path" />
+                <ScalarProperty Name="templet_path" ColumnName="templet_path" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="crod" ColumnName="crod" />
+                <ScalarProperty Name="copyright" ColumnName="copyright" />
+                <ScalarProperty Name="seo_title" ColumnName="seo_title" />
+                <ScalarProperty Name="seo_keyword" ColumnName="seo_keyword" />
+                <ScalarProperty Name="seo_description" ColumnName="seo_description" />
+                <ScalarProperty Name="is_default" ColumnName="is_default" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="express">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.express">
+              <MappingFragment StoreEntitySet="express">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="express_code" ColumnName="express_code" />
+                <ScalarProperty Name="express_fee" ColumnName="express_fee" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedback">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.feedback">
+              <MappingFragment StoreEntitySet="feedback">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="site_path" ColumnName="site_path" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+                <ScalarProperty Name="user_qq" ColumnName="user_qq" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="reply_content" ColumnName="reply_content" />
+                <ScalarProperty Name="reply_time" ColumnName="reply_time" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="link">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.link">
+              <MappingFragment StoreEntitySet="link">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="site_path" ColumnName="site_path" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="site_url" ColumnName="site_url" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="is_image" ColumnName="is_image" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_red" ColumnName="is_red" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mail_template">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.mail_template">
+              <MappingFragment StoreEntitySet="mail_template">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="call_index" ColumnName="call_index" />
+                <ScalarProperty Name="maill_title" ColumnName="maill_title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager">
+              <MappingFragment StoreEntitySet="manager">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="real_name" ColumnName="real_name" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager_log">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager_log">
+              <MappingFragment StoreEntitySet="manager_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="action_type" ColumnName="action_type" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="user_ip" ColumnName="user_ip" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager_role">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager_role">
+              <MappingFragment StoreEntitySet="manager_role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager_role_value">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager_role_value">
+              <MappingFragment StoreEntitySet="manager_role_value">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="nav_name" ColumnName="nav_name" />
+                <ScalarProperty Name="action_type" ColumnName="action_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="navigation">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.navigation">
+              <MappingFragment StoreEntitySet="navigation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="nav_type" ColumnName="nav_type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="sub_title" ColumnName="sub_title" />
+                <ScalarProperty Name="icon_url" ColumnName="icon_url" />
+                <ScalarProperty Name="link_url" ColumnName="link_url" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="action_type" ColumnName="action_type" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_goods">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.order_goods">
+              <MappingFragment StoreEntitySet="order_goods">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="article_id" ColumnName="article_id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="goods_no" ColumnName="goods_no" />
+                <ScalarProperty Name="goods_title" ColumnName="goods_title" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="spec_text" ColumnName="spec_text" />
+                <ScalarProperty Name="goods_price" ColumnName="goods_price" />
+                <ScalarProperty Name="real_price" ColumnName="real_price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="point" ColumnName="point" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.orders">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="order_no" ColumnName="order_no" />
+                <ScalarProperty Name="trade_no" ColumnName="trade_no" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="payment_fee" ColumnName="payment_fee" />
+                <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+                <ScalarProperty Name="payment_time" ColumnName="payment_time" />
+                <ScalarProperty Name="express_id" ColumnName="express_id" />
+                <ScalarProperty Name="express_no" ColumnName="express_no" />
+                <ScalarProperty Name="express_fee" ColumnName="express_fee" />
+                <ScalarProperty Name="express_status" ColumnName="express_status" />
+                <ScalarProperty Name="express_time" ColumnName="express_time" />
+                <ScalarProperty Name="accept_name" ColumnName="accept_name" />
+                <ScalarProperty Name="post_code" ColumnName="post_code" />
+                <ScalarProperty Name="telphone" ColumnName="telphone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="is_invoice" ColumnName="is_invoice" />
+                <ScalarProperty Name="invoice_title" ColumnName="invoice_title" />
+                <ScalarProperty Name="invoice_taxes" ColumnName="invoice_taxes" />
+                <ScalarProperty Name="payable_amount" ColumnName="payable_amount" />
+                <ScalarProperty Name="real_amount" ColumnName="real_amount" />
+                <ScalarProperty Name="order_amount" ColumnName="order_amount" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="confirm_time" ColumnName="confirm_time" />
+                <ScalarProperty Name="complete_time" ColumnName="complete_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="poundage_type" ColumnName="poundage_type" />
+                <ScalarProperty Name="poundage_amount" ColumnName="poundage_amount" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="api_path" ColumnName="api_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sms_template">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.sms_template">
+              <MappingFragment StoreEntitySet="sms_template">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="call_index" ColumnName="call_index" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_amount_log">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_amount_log">
+              <MappingFragment StoreEntitySet="user_amount_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_code">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_code">
+              <MappingFragment StoreEntitySet="user_code">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="str_code" ColumnName="str_code" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="user_ip" ColumnName="user_ip" />
+                <ScalarProperty Name="eff_time" ColumnName="eff_time" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_group_price">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_group_price">
+              <MappingFragment StoreEntitySet="user_group_price">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="article_id" ColumnName="article_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_groups">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_groups">
+              <MappingFragment StoreEntitySet="user_groups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="upgrade_exp" ColumnName="upgrade_exp" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="is_default" ColumnName="is_default" />
+                <ScalarProperty Name="is_upgrade" ColumnName="is_upgrade" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_login_log">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_login_log">
+              <MappingFragment StoreEntitySet="user_login_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="login_time" ColumnName="login_time" />
+                <ScalarProperty Name="login_ip" ColumnName="login_ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_message">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_message">
+              <MappingFragment StoreEntitySet="user_message">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="post_user_name" ColumnName="post_user_name" />
+                <ScalarProperty Name="accept_user_name" ColumnName="accept_user_name" />
+                <ScalarProperty Name="is_read" ColumnName="is_read" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="post_time" ColumnName="post_time" />
+                <ScalarProperty Name="read_time" ColumnName="read_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_oauth">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_oauth">
+              <MappingFragment StoreEntitySet="user_oauth">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="oauth_name" ColumnName="oauth_name" />
+                <ScalarProperty Name="oauth_access_token" ColumnName="oauth_access_token" />
+                <ScalarProperty Name="oauth_openid" ColumnName="oauth_openid" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_oauth_app">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_oauth_app">
+              <MappingFragment StoreEntitySet="user_oauth_app">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+                <ScalarProperty Name="app_id" ColumnName="app_id" />
+                <ScalarProperty Name="app_key" ColumnName="app_key" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="api_path" ColumnName="api_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_point_log">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_point_log">
+              <MappingFragment StoreEntitySet="user_point_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_recharge">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_recharge">
+              <MappingFragment StoreEntitySet="user_recharge">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="recharge_no" ColumnName="recharge_no" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="complete_time" ColumnName="complete_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="nick_name" ColumnName="nick_name" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="telphone" ColumnName="telphone" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="qq" ColumnName="qq" />
+                <ScalarProperty Name="msn" ColumnName="msn" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="exp" ColumnName="exp" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="reg_time" ColumnName="reg_time" />
+                <ScalarProperty Name="reg_ip" ColumnName="reg_ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_attach_log">
+            <EntityTypeMapping TypeName="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_attach_log">
+              <MappingFragment StoreEntitySet="user_attach_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="attach_id" ColumnName="attach_id" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

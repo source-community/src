@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a42f5d4ebd624b0fbf3a7c5e6b9fe161" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article" Width="1.5" PointX="10.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_albums" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_attach" Width="1.5" PointX="7.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_attribute_field" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_attribute_value" Width="1.5" PointX="13" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_category" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.article_comment" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.channel" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.channel_field" Width="1.5" PointX="10.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.channel_site" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.express" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.feedback" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.link" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.mail_template" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager_log" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager_role" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.manager_role_value" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.navigation" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.order_goods" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.orders" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.payment" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.sms_template" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_amount_log" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_code" Width="1.5" PointX="11.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_group_price" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_groups" Width="1.5" PointX="13.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_login_log" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_message" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_oauth" Width="1.5" PointX="8.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_oauth_app" Width="1.5" PointX="15.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_point_log" Width="1.5" PointX="17.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_recharge" Width="1.5" PointX="17.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.users" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.user_attach_log" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_ARTIC_REFERENCE_ARTIC" ManuallyRouted="false" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_CHANN_REFERENCE_ARTIC" ManuallyRouted="false" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_CHANN_REFERENCE_CHANN" ManuallyRouted="false" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_CHANN_REFERENCE_CHANN_FIELD" ManuallyRouted="false" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_MANAG_REFERENCE_MANAG" ManuallyRouted="false" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_MANAG_REFERENCE_MANAG_ROLE_VALUE" ManuallyRouted="false" />
+        <AssociationConnector Association="dbcc6ecb5cc89b4edda5faa6c9008a7850Model.FK_ORDER_REFERENCE_ORDER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
